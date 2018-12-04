@@ -1,15 +1,19 @@
-package com.wsd_killers.multiagentscheduleplanner_client;
+package com.wsd_killers.multiagentscheduleplanner_client.login_screen;
 
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.wsd_killers.multiagentscheduleplanner_client.R;
+import com.wsd_killers.multiagentscheduleplanner_client.agent.ClientAgent;
+import com.wsd_killers.multiagentscheduleplanner_client.config_screen.ConfigActivity;
 
 import java.util.logging.Level;
 
@@ -24,7 +28,9 @@ import jade.util.leap.Properties;
 import jade.wrapper.AgentController;
 import jade.wrapper.ControllerException;
 
-public class MainActivity extends AppCompatActivity {
+//todo: Wyrzucić metody związane z tworzeniem agenta. Najlepiej do osobnej klasy. Trzymać się MVP.
+
+public class LoginActivity extends AppCompatActivity implements LoginContract.View {
 
     private static final String JADE_IP = "192.168.0.10"; // zmiencie to na wasze IP
 
@@ -143,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openClientActivity() {
-        Intent intent = new Intent(this, ClientActivity.class);
+        Intent intent = new Intent(this, ConfigActivity.class);
         startActivity(intent);
     }
 

@@ -15,14 +15,14 @@
 
         <service android:name="jade.android.MicroRuntimeService" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".login_screen.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ClientActivity"></activity>
+        <activity android:name=".config_screen.ConfigActivity"></activity>
     </application>
 
 </manifest>

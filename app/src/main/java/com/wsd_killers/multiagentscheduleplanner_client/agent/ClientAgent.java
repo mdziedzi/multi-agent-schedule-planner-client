@@ -1,4 +1,4 @@
-package com.wsd_killers.multiagentscheduleplanner_client;
+package com.wsd_killers.multiagentscheduleplanner_client.agent;
 
 import jade.core.Agent;
 import jade.core.behaviours.CyclicBehaviour;
@@ -14,7 +14,7 @@ public class ClientAgent extends Agent {
             public void action() {
                 System.out.println("Jestem androindowym agentem!");
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
