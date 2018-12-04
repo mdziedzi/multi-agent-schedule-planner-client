@@ -39,11 +39,14 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     private Logger logger = Logger.getJADELogger(this.getClass().getName());
     private TextView agentNameTextView;
     private Button registerAgentButton;
+    private LoginContract.Presenter loginPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        loginPresenter = new LoginPresenter(this);
 
         agentNameTextView = findViewById(R.id.agentNamePlainText);
         registerAgentButton = findViewById(R.id.registerAgentButton);
@@ -150,6 +153,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     private void openClientActivity() {
         Intent intent = new Intent(this, ConfigActivity.class);
+        intent.putExtra("agentName", agentNameTextView.getText().toString());
         startActivity(intent);
     }
 

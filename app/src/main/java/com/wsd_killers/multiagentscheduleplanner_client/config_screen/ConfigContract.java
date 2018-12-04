@@ -8,6 +8,7 @@ public interface ConfigContract {
 
     interface Presenter {
 
+        void bindAgent(String agentName);
     }
 
 }
