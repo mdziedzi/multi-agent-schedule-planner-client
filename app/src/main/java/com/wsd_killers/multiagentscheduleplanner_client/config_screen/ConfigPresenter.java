@@ -31,4 +31,10 @@ public class ConfigPresenter implements ConfigContract.Presenter {
         }
     }
 
+    @Override
+    public void confirmAgenda() {
+        // tutaj powinniśmy wystartować agenta
+
+    }
+
 }
