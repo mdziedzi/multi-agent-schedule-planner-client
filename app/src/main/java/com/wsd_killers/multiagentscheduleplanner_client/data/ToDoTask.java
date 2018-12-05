@@ -2,26 +2,19 @@ package com.wsd_killers.multiagentscheduleplanner_client.data;
 
 import java.util.Date;
 
-public class ToDoTask {
+public class ToDoTask extends Task {
 
-    private String name;
     private Date timeIntervalBegin;
     private Date timeIntervalEnd;
     private Date estimatedDuration;
 
-    public ToDoTask(String name, Date timeIntervalBegin, Date timeIntervalEnd, Date estimatedDuration) {
+    public ToDoTask(String name, TaskType type, int slotsQuantity, Date timeIntervalBegin, Date timeIntervalEnd, Date estimatedDuration) {
         this.name = name;
+        this.type = type;
+        this.slotsQuantity = slotsQuantity;
         this.timeIntervalBegin = timeIntervalBegin;
         this.timeIntervalEnd = timeIntervalEnd;
         this.estimatedDuration = estimatedDuration;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Date getTimeIntervalBegin() {

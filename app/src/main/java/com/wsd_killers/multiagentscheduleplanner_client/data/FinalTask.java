@@ -1,25 +1,18 @@
 package com.wsd_killers.multiagentscheduleplanner_client.data;
 
-public class FinalTask {
+public class FinalTask extends Task {
 
-    private String name;
     private String startTime;
     private String endTime;
     private String duration;
 
-    public FinalTask(String name, String startTime, String endTime, String duration) {
+    public FinalTask(String name, TaskType type, int slotsQuantity, String startTime, String endTime, String duration) {
         this.name = name;
+        this.type = type;
+        this.slotsQuantity = slotsQuantity;
         this.startTime = startTime;
         this.endTime = endTime;
         this.duration = duration;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getStartTime() {
