@@ -19,5 +19,6 @@ public class ConfigActivity extends AppCompatActivity implements ConfigContract.
 
         agentName = getIntent().getStringExtra("agentName");
         configPresenter.bindAgent(agentName);
+
     }
 }
