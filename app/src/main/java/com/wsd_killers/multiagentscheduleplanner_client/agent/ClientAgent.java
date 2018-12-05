@@ -1,5 +1,9 @@
 package com.wsd_killers.multiagentscheduleplanner_client.agent;
 
+import com.wsd_killers.multiagentscheduleplanner_client.data.ToDoTask;
+
+import java.util.ArrayList;
+
 import jade.core.Agent;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.core.behaviours.OneShotBehaviour;
@@ -42,4 +46,10 @@ public class ClientAgent extends Agent implements ClientAgentInterface {
             }
         });
     }
+
+    @Override
+    public void insertData(ArrayList<ToDoTask> toDoTaskstasks) {
+        // tutaj budzi się agent
+    }
+
 }
