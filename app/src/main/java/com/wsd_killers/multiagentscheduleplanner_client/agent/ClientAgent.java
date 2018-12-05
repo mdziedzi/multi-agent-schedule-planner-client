@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import jade.core.Agent;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.core.behaviours.OneShotBehaviour;
+import com.wsd_killers.multiagentscheduleplanner_client.behaviours.*;
+
+import java.util.ArrayList;
 
 public class ClientAgent extends Agent implements ClientAgentInterface {
 
@@ -27,6 +30,22 @@ public class ClientAgent extends Agent implements ClientAgentInterface {
                 }
             }
         });
+
+        ArrayList<CommonBehaviour> myBehaviours;
+
+        myBehaviours = new ArrayList<>();
+
+        myBehaviours.add(new CustomerInterface());
+        myBehaviours.add(new CustomerScheduler());
+        myBehaviours.add(new CustomerSecretary());
+
+        addBehaviour(new ClientBehaviour(myBehaviours) {
+        });
+
+
+
+
+
 
     }
 
