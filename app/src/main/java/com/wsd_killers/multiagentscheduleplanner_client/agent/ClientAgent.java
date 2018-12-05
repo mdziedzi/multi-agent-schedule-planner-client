@@ -50,6 +50,7 @@ public class ClientAgent extends Agent implements ClientAgentInterface {
     @Override
     public void insertData(ArrayList<ToDoTask> toDoTaskstasks) {
         // tutaj budzi się agent
+
     }
 
 }
