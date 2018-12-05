@@ -1,11 +1,60 @@
 package com.wsd_killers.multiagentscheduleplanner_client.behaviours;
 
-public class CustomerScheduler extends ClientBehaviour {
+
+import com.wsd_killers.multiagentscheduleplanner_client.Constans.Constans;
+//import Data.ReservationData;
+import jade.lang.acl.ACLMessage;
+
+import java.util.ArrayList;
+import java.util.Date;
+
+
+
+public class CustomerScheduler extends CommonBehaviour {
+
+    private static final Date slotDuration = new Date(0, 0, 0, 0, 15);
+//    private ArrayList<ArrayList<ReservationData>> reservations;
+
+    /*
+    public CustomerScheduler() {reservations = null;}
+    */
+
     @Override
     public void action() {
+        if (msg != null) {
+            System.out.println("Message: " + msg.toString());
+            String conversationId = msg.getConversationId();
+            switch (conversationId) {
+                case Constans.CustomerSchedulerMessages.NOTIFY_CHANGES:
+                    break;
+                case Constans.CustomerSchedulerMessages.RECEIVE_RESERVATION_STATUS:
+                    break;
+                case Constans.CustomerSchedulerMessages.RECIVE_TASK_DATA:
+                    break;
+                case Constans.CustomerSchedulerMessages.SEND_TASK:
+                    break;
+                default:
+                    myAgent.send(createNotUnderstoodMessage(msg));
+                    break;
+            }
+        }
 
     }
-
+    @Override
+    public boolean isMessageRelevant(ACLMessage msg) {
+        if (msg != null) {
+            switch (msg.getConversationId()) {
+                case Constans.CustomerSchedulerMessages.NOTIFY_CHANGES:
+                case Constans.CustomerSchedulerMessages.RECEIVE_RESERVATION_STATUS:
+                case Constans.CustomerSchedulerMessages.RECIVE_TASK_DATA:
+                case Constans.CustomerSchedulerMessages.SEND_TASK:
+                    return true;
+                default:
+                    return false;
+            }
+        }
+        return false;
+    }
     @Override
     public boolean done() {
         return false;
