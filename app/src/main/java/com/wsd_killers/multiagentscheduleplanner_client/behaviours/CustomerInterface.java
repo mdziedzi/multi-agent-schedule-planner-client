@@ -2,13 +2,20 @@ package com.wsd_killers.multiagentscheduleplanner_client.behaviours;
 
 import jade.lang.acl.ACLMessage;
 import com.wsd_killers.multiagentscheduleplanner_client.Constans.Constans;
+import com.wsd_killers.multiagentscheduleplanner_client.Exceptions.negativeValueException;
+
 
 import java.util.Date;
 import java.util.Objects;
 
 
+public class CustomerInterface extends CommonBehaviour implements com.wsd_killers.multiagentscheduleplanner_client.Interfaces.CustomerInterface {
 
-public class CustomerInterface extends ClientBehaviour {
+    public void setCustomerData(com.wsd_killers.multiagentscheduleplanner_client.Data.CustomerData data) throws negativeValueException{
+
+
+    }
+
     @Override
     public void action() {
         if (msg != null) {
