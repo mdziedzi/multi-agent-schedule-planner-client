@@ -5,5 +5,5 @@ import com.wsd_killers.multiagentscheduleplanner_client.Exceptions.negativeValue
 
 
 public interface CustomerInterface {
-    void setServiceProviderData(CustomerData data) throws negativeValueException;
+    void setCustomerData(CustomerData data) throws negativeValueException;
 }
