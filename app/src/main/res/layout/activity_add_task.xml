@@ -47,21 +47,21 @@
             android:layout_width="325dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:hint="Beginning of interval" />
+            android:hint="Beginning of interval (hh:mm)" />
 
         <EditText
             android:id="@+id/task_end"
             android:layout_width="325dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:hint="End of interval" />
+            android:hint="End of interval (hh:mm)" />
 
         <EditText
             android:id="@+id/task_duration"
             android:layout_width="325dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:hint="Task duration" />
+            android:hint="Task duration (hh:mm)" />
 
     </LinearLayout>
 
