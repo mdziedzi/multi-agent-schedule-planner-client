@@ -9,6 +9,7 @@ public class ToDoTaskRepository {
     private ArrayList<ToDoTask> tasks;
 
     private ToDoTaskRepository() {
+        tasks = new ArrayList<>();
     }
 
     public static ToDoTaskRepository getInstance() {

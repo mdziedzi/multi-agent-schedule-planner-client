@@ -2,13 +2,13 @@ package com.wsd_killers.multiagentscheduleplanner_client.data;
 
 import java.util.Date;
 
-public class ToDoTask extends Task {
+public class ToDoTask extends com.wsd_killers.multiagentscheduleplanner_client.data.Task {
 
     private Date timeIntervalBegin;
     private Date timeIntervalEnd;
     private Date estimatedDuration;
 
-    public ToDoTask(String name, TaskType type, int slotsQuantity, Date timeIntervalBegin, Date timeIntervalEnd, Date estimatedDuration) {
+    public ToDoTask(String name, com.wsd_killers.multiagentscheduleplanner_client.data.TaskType type, int slotsQuantity, Date timeIntervalBegin, Date timeIntervalEnd, Date estimatedDuration) {
         this.name = name;
         this.type = type;
         this.slotsQuantity = slotsQuantity;

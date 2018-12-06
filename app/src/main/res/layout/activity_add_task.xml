@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.AddTaskActivity" >
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        >
+
+        <EditText
+            android:id="@+id/task_name"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:hint="Task name" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Task type"
+            android:layout_marginTop="15dp"
+            android:textSize="17sp"/>
+
+        <Spinner
+            android:id="@+id/task_type"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            />
+
+
+        <EditText
+            android:id="@+id/task_slots"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="Slots number" />
+
+        <EditText
+            android:id="@+id/task_begin"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="Beginning of interval" />
+
+        <EditText
+            android:id="@+id/task_end"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="End of interval" />
+
+        <EditText
+            android:id="@+id/task_duration"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="Task duration" />
+
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/task_confirm_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="20dp"
+        android:src="@drawable/ic_create"
+        android:onClick="onConfirmClicked"/>
+
+
+</android.support.design.widget.CoordinatorLayout>

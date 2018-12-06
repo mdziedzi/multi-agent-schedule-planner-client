@@ -32,7 +32,7 @@ import jade.wrapper.ControllerException;
 
 public class LoginActivity extends AppCompatActivity implements LoginContract.View {
 
-    private static final String JADE_IP = "192.168.0.10"; // zmiencie to na wasze IP
+    private static final String JADE_IP = "192.168.0.143"; // zmiencie to na wasze IP
 
     private ServiceConnection serviceConnection;
     private MicroRuntimeServiceBinder microRuntimeServiceBinder;
