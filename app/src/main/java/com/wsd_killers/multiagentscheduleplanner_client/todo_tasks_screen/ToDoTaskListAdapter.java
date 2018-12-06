@@ -1,4 +1,4 @@
-package com.wsd_killers.multiagentscheduleplanner_client.config_screen;
+package com.wsd_killers.multiagentscheduleplanner_client.todo_tasks_screen;
 
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -11,10 +11,9 @@ import com.wsd_killers.multiagentscheduleplanner_client.R;
 import com.wsd_killers.multiagentscheduleplanner_client.data.ToDoTask;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 
-public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskViewHolder> {
+public class ToDoTaskListAdapter extends RecyclerView.Adapter<ToDoTaskListAdapter.TaskViewHolder> {
 
     private ArrayList<ToDoTask> tasks;
 
@@ -30,7 +29,7 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
         }
     }
 
-    public TaskListAdapter(ArrayList<ToDoTask> myDataset) {
+    public ToDoTaskListAdapter(ArrayList<ToDoTask> myDataset) {
         tasks = myDataset;
     }
 

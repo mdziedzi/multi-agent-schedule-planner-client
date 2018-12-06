@@ -1,5 +1,10 @@
 package com.wsd_killers.multiagentscheduleplanner_client.agent;
 
+import com.wsd_killers.multiagentscheduleplanner_client.behaviours.ClientBehaviour;
+import com.wsd_killers.multiagentscheduleplanner_client.behaviours.CommonBehaviour;
+import com.wsd_killers.multiagentscheduleplanner_client.behaviours.CustomerInterface;
+import com.wsd_killers.multiagentscheduleplanner_client.behaviours.CustomerScheduler;
+import com.wsd_killers.multiagentscheduleplanner_client.behaviours.CustomerSecretary;
 import com.wsd_killers.multiagentscheduleplanner_client.data.ToDoTask;
 
 import java.util.ArrayList;
@@ -7,11 +12,12 @@ import java.util.ArrayList;
 import jade.core.Agent;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.core.behaviours.OneShotBehaviour;
-import com.wsd_killers.multiagentscheduleplanner_client.behaviours.*;
-
-import java.util.ArrayList;
 
 public class ClientAgent extends Agent implements ClientAgentInterface {
+
+    private ArrayList<CommonBehaviour> myBehaviours;
+    private CustomerInterface customerInterface = new CustomerInterface();
+
 
     protected void setup() {
 
@@ -31,21 +37,12 @@ public class ClientAgent extends Agent implements ClientAgentInterface {
             }
         });
 
-        ArrayList<CommonBehaviour> myBehaviours;
 
         myBehaviours = new ArrayList<>();
 
         myBehaviours.add(new CustomerInterface());
         myBehaviours.add(new CustomerScheduler());
         myBehaviours.add(new CustomerSecretary());
-
-        addBehaviour(new ClientBehaviour(myBehaviours) {
-        });
-
-
-
-
-
 
     }
 
@@ -69,6 +66,10 @@ public class ClientAgent extends Agent implements ClientAgentInterface {
     @Override
     public void insertData(ArrayList<ToDoTask> toDoTaskstasks) {
         // tutaj budzi się agent
+
+        customerInterface.setClientData(toDoTaskstasks);
+        addBehaviour(new ClientBehaviour(myBehaviours) {
+        });
 
     }
 

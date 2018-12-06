@@ -1,4 +1,4 @@
-package com.wsd_killers.multiagentscheduleplanner_client.config_screen;
+package com.wsd_killers.multiagentscheduleplanner_client.todo_tasks_screen;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,10 +16,10 @@ import com.wsd_killers.multiagentscheduleplanner_client.data.ToDoTaskRepository;
 
 import java.util.Date;
 
-public class ConfigActivity extends AppCompatActivity implements ConfigContract.View {
+public class ToDoTasksActivity extends AppCompatActivity implements ToDoTasksContract.View {
 
     private String agentName;
-    private ConfigContract.Presenter configPresenter;
+    private ToDoTasksContract.Presenter configPresenter;
     private FloatingActionButton addNewTaskButton;
     private FloatingActionButton confirmAgendaButton;
     private RecyclerView mRecyclerView;
@@ -46,7 +46,7 @@ public class ConfigActivity extends AppCompatActivity implements ConfigContract.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client);
 
-        configPresenter = new ConfigPresenter(this);
+        configPresenter = new ToDoTasksPresenter(this);
 
         mToDoTaskRepository = ToDoTaskRepository.getInstance();
         initViews();
@@ -73,13 +73,13 @@ public class ConfigActivity extends AppCompatActivity implements ConfigContract.
                 new Date(0 , 0, 0, 0, 30, 0));
         mToDoTaskRepository.addNewTask(toDoTask);
 
-        mAdapter = new TaskListAdapter(mToDoTaskRepository.getTasks());
+        mAdapter = new ToDoTaskListAdapter(mToDoTaskRepository.getTasks());
         mRecyclerView.setAdapter(mAdapter);
 
         addNewTaskButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(ConfigActivity.this, AddTaskActivity.class);
+                Intent i = new Intent(ToDoTasksActivity.this, AddTaskActivity.class);
                 startActivityForResult(i, 100);
             }
         });

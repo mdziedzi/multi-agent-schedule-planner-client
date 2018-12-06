@@ -21,7 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".config_screen.ConfigActivity" />
+        <activity android:name=".todo_tasks_screen.ToDoTasksActivity" />
         <activity android:name=".activity.AddTaskActivity"></activity>
     </application>
 

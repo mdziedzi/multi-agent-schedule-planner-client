@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.wsd_killers.multiagentscheduleplanner_client.R;
 import com.wsd_killers.multiagentscheduleplanner_client.agent.ClientAgent;
-import com.wsd_killers.multiagentscheduleplanner_client.config_screen.ConfigActivity;
+import com.wsd_killers.multiagentscheduleplanner_client.todo_tasks_screen.ToDoTasksActivity;
 
 import java.util.logging.Level;
 
@@ -28,11 +28,12 @@ import jade.util.leap.Properties;
 import jade.wrapper.AgentController;
 import jade.wrapper.ControllerException;
 
+import static com.wsd_killers.multiagentscheduleplanner_client.Constans.NetworkUtils.JADE_IP;
+import static com.wsd_killers.multiagentscheduleplanner_client.Constans.NetworkUtils.JADE_PORT;
+
 //todo: Wyrzucić metody związane z tworzeniem agenta. Najlepiej do osobnej klasy. Trzymać się MVP.
 
 public class LoginActivity extends AppCompatActivity implements LoginContract.View {
-
-    private static final String JADE_IP = "192.168.0.143"; // zmiencie to na wasze IP
 
     private ServiceConnection serviceConnection;
     private MicroRuntimeServiceBinder microRuntimeServiceBinder;
@@ -90,7 +91,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         Properties pp = new Properties();
 //        pp.setProperty(Profile.MAIN_HOST, "192.168.0.10"); // zmiencie ip na wasze
         pp.setProperty(Profile.MAIN_HOST, JADE_IP); // zmiencie ip na wasze
-        pp.setProperty(Profile.MAIN_PORT, "1099");
+        pp.setProperty(Profile.MAIN_PORT, JADE_PORT);
         pp.setProperty(Profile.JVM, Profile.ANDROID);
 
         if (AndroidHelper.isEmulator()) {
@@ -152,7 +153,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     }
 
     private void openClientActivity() {
-        Intent intent = new Intent(this, ConfigActivity.class);
+        Intent intent = new Intent(this, ToDoTasksActivity.class);
         intent.putExtra("agentName", agentNameTextView.getText().toString());
         startActivity(intent);
     }

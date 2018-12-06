@@ -1,4 +1,4 @@
-package com.wsd_killers.multiagentscheduleplanner_client.config_screen;
+package com.wsd_killers.multiagentscheduleplanner_client.todo_tasks_screen;
 
 import android.util.Log;
 
@@ -9,13 +9,13 @@ import jade.core.MicroRuntime;
 import jade.wrapper.ControllerException;
 import jade.wrapper.StaleProxyException;
 
-public class ConfigPresenter implements ConfigContract.Presenter {
+public class ToDoTasksPresenter implements ToDoTasksContract.Presenter {
 
-    private static final String TAG = ConfigPresenter.class.getSimpleName();
-    private final ConfigContract.View configView;
+    private static final String TAG = ToDoTasksPresenter.class.getSimpleName();
+    private final ToDoTasksContract.View configView;
     private ClientAgentInterface clientAgentInterface;
 
-    public ConfigPresenter(ConfigContract.View view) {
+    public ToDoTasksPresenter(ToDoTasksContract.View view) {
         configView = view;
     }
 

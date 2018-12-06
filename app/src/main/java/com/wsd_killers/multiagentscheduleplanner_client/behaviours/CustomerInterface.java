@@ -1,12 +1,13 @@
 package com.wsd_killers.multiagentscheduleplanner_client.behaviours;
 
-import jade.lang.acl.ACLMessage;
 import com.wsd_killers.multiagentscheduleplanner_client.Constans.Constans;
 import com.wsd_killers.multiagentscheduleplanner_client.Exceptions.negativeValueException;
-import com.wsd_killers.multiagentscheduleplanner_client.data.FinalTask;
+import com.wsd_killers.multiagentscheduleplanner_client.data.ToDoTask;
 
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.Objects;
+
+import jade.lang.acl.ACLMessage;
 
 
 public class CustomerInterface extends CommonBehaviour implements com.wsd_killers.multiagentscheduleplanner_client.Interfaces.CustomerInterfaceInterface {
@@ -79,5 +80,13 @@ public class CustomerInterface extends CommonBehaviour implements com.wsd_killer
     @Override
     public boolean done() {
         return false;
+    }
+
+    public void setClientData(ArrayList<ToDoTask> toDoTasks) {
+        unpackToDoTasks(toDoTasks);
+    }
+
+    private void unpackToDoTasks(ArrayList<ToDoTask> toDoTasks) {
+        //todo
     }
 }

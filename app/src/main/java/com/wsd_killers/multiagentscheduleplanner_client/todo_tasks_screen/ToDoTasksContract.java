@@ -1,6 +1,6 @@
-package com.wsd_killers.multiagentscheduleplanner_client.config_screen;
+package com.wsd_killers.multiagentscheduleplanner_client.todo_tasks_screen;
 
-public interface ConfigContract {
+public interface ToDoTasksContract {
 
     interface View {
 
