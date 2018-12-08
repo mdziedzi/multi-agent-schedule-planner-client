@@ -1,7 +1,7 @@
 package com.wsd_killers.multiagentscheduleplanner_client.agent;
 
-import com.wsd_killers.multiagentscheduleplanner_client.behaviours.ClientBehaviour;
-import com.wsd_killers.multiagentscheduleplanner_client.behaviours.CommonBehaviour;
+import com.wsd_killers.multiagentscheduleplanner_client.behaviours.BasicBehaviour;
+import com.wsd_killers.multiagentscheduleplanner_client.behaviours.CommonTask;
 import com.wsd_killers.multiagentscheduleplanner_client.behaviours.CustomerInterface;
 import com.wsd_killers.multiagentscheduleplanner_client.behaviours.CustomerScheduler;
 import com.wsd_killers.multiagentscheduleplanner_client.behaviours.CustomerSecretary;
@@ -15,7 +15,7 @@ import jade.core.behaviours.OneShotBehaviour;
 
 public class ClientAgent extends Agent implements ClientAgentInterface {
 
-    private ArrayList<CommonBehaviour> myBehaviours;
+    private ArrayList<CommonTask> myBehaviours;
     private CustomerInterface customerInterface = new CustomerInterface();
 
 
@@ -68,7 +68,7 @@ public class ClientAgent extends Agent implements ClientAgentInterface {
         // tutaj budzi się agent
 
         customerInterface.setClientData(toDoTaskstasks);
-        addBehaviour(new ClientBehaviour(myBehaviours) {
+        addBehaviour(new BasicBehaviour(myBehaviours) {
         });
 
     }

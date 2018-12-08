@@ -16,7 +16,7 @@ import jade.lang.acl.ACLMessage;
 import static android.text.TextUtils.isEmpty;
 
 
-public class CustomerInterface extends CommonBehaviour implements com.wsd_killers.multiagentscheduleplanner_client.Interfaces.CustomerInterfaceInterface {
+public class CustomerInterface extends CommonTask implements com.wsd_killers.multiagentscheduleplanner_client.Interfaces.CustomerInterfaceInterface {
 
     //    private String name;
 //    private String startTime;
@@ -53,22 +53,6 @@ public class CustomerInterface extends CommonBehaviour implements com.wsd_killer
 //
 //    }
 
-    @Override
-    public void action() {
-        if (msg != null) {
-            System.out.println("Message: " + msg.toString());
-            String conversationId = msg.getConversationId();
-            switch (conversationId) {
-                case Constans.ServiceProviderInterfaceMessages.VERIFY_RESERVATION:
-                    break;
-                case Constans.ServiceProviderInterfaceMessages.SEND_SERVICE_DATA:
-                    break;
-                default:
-                    myAgent.send(createNotUnderstoodMessage(msg));
-                    break;
-            }
-        }
-    }
 
     @Override
     public boolean isMessageRelevant(ACLMessage msg) {
@@ -83,10 +67,22 @@ public class CustomerInterface extends CommonBehaviour implements com.wsd_killer
         return false;
     }
 
-
     @Override
-    public boolean done() {
-        return false;
+    public ACLMessage ProcessMessage(ACLMessage msg) {
+        //todo
+        if (msg != null) {
+            System.out.println("Message: " + msg.toString());
+            String conversationId = msg.getConversationId();
+            switch (conversationId) {
+                case Constans.ServiceProviderInterfaceMessages.VERIFY_RESERVATION:
+                    break;
+                case Constans.ServiceProviderInterfaceMessages.SEND_SERVICE_DATA:
+                    break;
+                default:
+                    return createNotUnderstoodMessage(msg);
+            }
+        }
+        return new ACLMessage();
     }
 
     public void setClientData(ArrayList<ToDoTask> toDoTasks) {

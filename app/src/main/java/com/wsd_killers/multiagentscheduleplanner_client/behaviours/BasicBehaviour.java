@@ -2,26 +2,26 @@ package com.wsd_killers.multiagentscheduleplanner_client.behaviours;
 
 import java.util.ArrayList;
 
-import jade.core.behaviours.Behaviour;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
 
-public abstract class ClientBehaviour extends CyclicBehaviour {
+public class BasicBehaviour extends CyclicBehaviour {
 
-    private ArrayList<CommonBehaviour> myBehaviours;
+    private ArrayList<CommonTask> TasksList;
 
-    public ClientBehaviour(ArrayList<CommonBehaviour> behaviours) { myBehaviours = new ArrayList<>(behaviours);}
+    public BasicBehaviour(ArrayList<CommonTask> tasks) {
+        TasksList = new ArrayList<>(tasks);
+    }
 
     @Override
     public void action() {
         ACLMessage msg = myAgent.receive();
         boolean isSPFound = false;
         if (msg != null) {
-            for (CommonBehaviour sp : myBehaviours) {
+            for (CommonTask sp : TasksList) {
                 if (sp.isMessageRelevant(msg)) {
                     isSPFound = true;
-                    sp.SetACLMessage(msg);
-                    sp.action();
+                    myAgent.send(sp.ProcessMessage(msg));
                 }
             }
             if (!isSPFound) {
@@ -30,11 +30,20 @@ public abstract class ClientBehaviour extends CyclicBehaviour {
         }
     }
 
+    public boolean SendMessageToTask(ACLMessage msg) {
+        for (CommonTask ct : TasksList) {
+            if (ct.isMessageRelevant(msg)) {
+                ct.ProcessMessage(msg);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public ACLMessage createNotUnderstoodMessage(ACLMessage message) {
         ACLMessage reply = message.createReply();
         reply.setPerformative(ACLMessage.NOT_UNDERSTOOD);
         reply.setContent("Not understood message");
         return reply;
     }
-
 }
