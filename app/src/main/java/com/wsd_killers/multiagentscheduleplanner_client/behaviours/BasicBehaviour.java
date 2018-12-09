@@ -30,7 +30,7 @@ public class BasicBehaviour extends CyclicBehaviour {
         }
     }
 
-    public boolean SendMessageToTask(ACLMessage msg) {
+    public boolean sendMessageToTask(ACLMessage msg) {
         for (CommonTask ct : TasksList) {
             if (ct.isMessageRelevant(msg)) {
                 ct.ProcessMessage(msg);

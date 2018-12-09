@@ -11,7 +11,7 @@ public abstract class CommonTask {
     }
 
     public boolean SendMessageToOtherTask(ACLMessage msg) {
-        return basicBehaviour.SendMessageToTask(msg);
+        return basicBehaviour.sendMessageToTask(msg);
     }
 
     public abstract boolean isMessageRelevant(ACLMessage msg);
