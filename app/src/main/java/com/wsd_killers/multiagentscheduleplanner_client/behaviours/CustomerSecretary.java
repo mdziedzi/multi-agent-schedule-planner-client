@@ -38,6 +38,8 @@ public class CustomerSecretary extends CommonTask {
                     break;
                 case Constans.CustomerSecretaryMessages.SEND_RESERVATION_STATUS:
                     break;
+                case Constans.CustomerSecretaryMessages.RECEIVE_SERVICE_DATA:
+                    return onReceiveServiceData(msg);
                 case Constans.CustomerSecretaryMessages.SEND_TASK_DATA:
                     return onSendTaskData(msg);
                 default:
@@ -48,8 +50,22 @@ public class CustomerSecretary extends CommonTask {
     }
 
     private ACLMessage onSendTaskData(ACLMessage msg) {
-        //todo wyslij to do innego agenta itp.
-        return new ACLMessage();
+        //todo: wyslij to do innego agenta itp.
+        //todo: jak dostac AID????
+        AID receiver = new AID();
+        ACLMessage message = new ACLMessage();
+        
+        message.addReceiver(receiver);
+        
+        
+        
+        return message;
     }
 
-}
+    private ACLMessage onReceiveServiceData(ACLMessage msg) {
+        //todo: tutaj otrzymujemy informacje od agenta serwisu o jego godzinach otwarcia itp. itd.
+        //todo: trzeba zaimportowac klase ServiceProviderData i odczytac ja z pola msg.getContent()
+        ServiceProviderData serviceProviderData = ServiceProviderData.deserialize(msg.getContent());
+        
+        return new ACLMessage();
+    }
