@@ -1,8 +1,8 @@
 package com.wsd_killers.multiagentscheduleplanner_client.behaviours;
 
 import com.wsd_killers.multiagentscheduleplanner_client.Constans.Constans;
-import com.wsd_killers.multiagentscheduleplanner_client.Data.ServiceProvider.ServiceProviderData;
 
+import Data.ServiceProvider.ServiceProviderData;
 import jade.core.AID;
 import jade.lang.acl.ACLMessage;
 
