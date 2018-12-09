@@ -1,17 +1,17 @@
 package com.wsd_killers.multiagentscheduleplanner_client.activity;
 
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.wsd_killers.multiagentscheduleplanner_client.Data.TaskType;
+import com.wsd_killers.multiagentscheduleplanner_client.Data.ToDoTask;
+import com.wsd_killers.multiagentscheduleplanner_client.Data.ToDoTaskRepository;
 import com.wsd_killers.multiagentscheduleplanner_client.R;
-import com.wsd_killers.multiagentscheduleplanner_client.data.TaskType;
-import com.wsd_killers.multiagentscheduleplanner_client.data.ToDoTask;
-import com.wsd_killers.multiagentscheduleplanner_client.data.ToDoTaskRepository;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

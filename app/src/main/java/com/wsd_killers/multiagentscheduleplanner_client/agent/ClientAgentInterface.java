@@ -1,6 +1,6 @@
 package com.wsd_killers.multiagentscheduleplanner_client.agent;
 
-import com.wsd_killers.multiagentscheduleplanner_client.data.ToDoTask;
+import com.wsd_killers.multiagentscheduleplanner_client.Data.ToDoTask;
 
 import java.util.ArrayList;
 

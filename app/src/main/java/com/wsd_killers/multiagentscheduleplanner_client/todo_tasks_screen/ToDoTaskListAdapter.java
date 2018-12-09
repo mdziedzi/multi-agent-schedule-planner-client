@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.wsd_killers.multiagentscheduleplanner_client.Data.ToDoTask;
 import com.wsd_killers.multiagentscheduleplanner_client.R;
-import com.wsd_killers.multiagentscheduleplanner_client.data.ToDoTask;
 
 import java.util.ArrayList;
 import java.util.Date;

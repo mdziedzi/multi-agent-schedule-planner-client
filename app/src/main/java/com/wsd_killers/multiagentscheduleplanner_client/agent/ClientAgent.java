@@ -1,12 +1,12 @@
 package com.wsd_killers.multiagentscheduleplanner_client.agent;
 
 import com.wsd_killers.multiagentscheduleplanner_client.Constans.Constans;
+import com.wsd_killers.multiagentscheduleplanner_client.Data.ToDoTask;
 import com.wsd_killers.multiagentscheduleplanner_client.behaviours.BasicBehaviour;
 import com.wsd_killers.multiagentscheduleplanner_client.behaviours.CommonTask;
 import com.wsd_killers.multiagentscheduleplanner_client.behaviours.CustomerInterface;
 import com.wsd_killers.multiagentscheduleplanner_client.behaviours.CustomerScheduler;
 import com.wsd_killers.multiagentscheduleplanner_client.behaviours.CustomerSecretary;
-import com.wsd_killers.multiagentscheduleplanner_client.data.ToDoTask;
 import com.wsd_killers.multiagentscheduleplanner_client.utils.SerializationUtils;
 
 import java.util.ArrayList;

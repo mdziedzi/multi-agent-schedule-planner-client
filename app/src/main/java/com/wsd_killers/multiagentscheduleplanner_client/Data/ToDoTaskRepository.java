@@ -1,4 +1,4 @@
-package com.wsd_killers.multiagentscheduleplanner_client.data;
+package com.wsd_killers.multiagentscheduleplanner_client.Data;
 
 import java.util.ArrayList;
 

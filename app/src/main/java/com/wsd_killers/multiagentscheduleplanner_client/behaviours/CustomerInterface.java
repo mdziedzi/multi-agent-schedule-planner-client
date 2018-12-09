@@ -1,9 +1,9 @@
 package com.wsd_killers.multiagentscheduleplanner_client.behaviours;
 
 import com.wsd_killers.multiagentscheduleplanner_client.Constans.Constans;
+import com.wsd_killers.multiagentscheduleplanner_client.Data.ToDoTask;
 import com.wsd_killers.multiagentscheduleplanner_client.Exceptions.BadFormatException;
 import com.wsd_killers.multiagentscheduleplanner_client.Exceptions.TimeIntegrityException;
-import com.wsd_killers.multiagentscheduleplanner_client.data.ToDoTask;
 import com.wsd_killers.multiagentscheduleplanner_client.utils.SerializationUtils;
 
 import java.text.ParseException;

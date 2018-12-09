@@ -35,6 +35,8 @@ public class BasicBehaviour extends CyclicBehaviour {
             if (!isSPFound) {
                 myAgent.send(createNotUnderstoodMessage(msg));
             }
+        } else {
+            block();
         }
     }
 

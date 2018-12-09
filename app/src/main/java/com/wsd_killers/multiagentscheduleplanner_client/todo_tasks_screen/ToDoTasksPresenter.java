@@ -2,8 +2,8 @@ package com.wsd_killers.multiagentscheduleplanner_client.todo_tasks_screen;
 
 import android.util.Log;
 
+import com.wsd_killers.multiagentscheduleplanner_client.Data.ToDoTaskRepository;
 import com.wsd_killers.multiagentscheduleplanner_client.agent.ClientAgentInterface;
-import com.wsd_killers.multiagentscheduleplanner_client.data.ToDoTaskRepository;
 
 import jade.core.MicroRuntime;
 import jade.wrapper.ControllerException;

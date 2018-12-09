@@ -1,4 +1,4 @@
-package com.wsd_killers.multiagentscheduleplanner_client.data.messages;
+package com.wsd_killers.multiagentscheduleplanner_client.Data.Common;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

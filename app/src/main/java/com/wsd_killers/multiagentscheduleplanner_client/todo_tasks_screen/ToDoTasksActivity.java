@@ -8,11 +8,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.wsd_killers.multiagentscheduleplanner_client.Data.TaskType;
+import com.wsd_killers.multiagentscheduleplanner_client.Data.ToDoTask;
+import com.wsd_killers.multiagentscheduleplanner_client.Data.ToDoTaskRepository;
 import com.wsd_killers.multiagentscheduleplanner_client.R;
 import com.wsd_killers.multiagentscheduleplanner_client.activity.AddTaskActivity;
-import com.wsd_killers.multiagentscheduleplanner_client.data.TaskType;
-import com.wsd_killers.multiagentscheduleplanner_client.data.ToDoTask;
-import com.wsd_killers.multiagentscheduleplanner_client.data.ToDoTaskRepository;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package com.wsd_killers.multiagentscheduleplanner_client.data.messages;
+package com.wsd_killers.multiagentscheduleplanner_client.Data.ServiceProvider;
 
 
 import java.io.ByteArrayInputStream;
@@ -6,6 +6,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.Base64;
 import java.util.Date;
 
 public class ServiceProviderData implements Serializable {
@@ -61,8 +62,9 @@ public class ServiceProviderData implements Serializable {
     public static ServiceProviderData deserialize(String serializedServiceProviderData) {
         ServiceProviderData s = null;
         try {
-            final byte[] bytes = android.util.Base64.decode(serializedServiceProviderData,
-                    android.util.Base64.DEFAULT);
+//            final byte[] bytes = android.util.Base64.decode(serializedServiceProviderData,
+//                    android.util.Base64.DEFAULT);
+            final byte[] bytes = Base64.getDecoder().decode(serializedServiceProviderData);
             byte b[] = serializedServiceProviderData.getBytes();
             ByteArrayInputStream bi = new ByteArrayInputStream(bytes);
             ObjectInputStream si = new ObjectInputStream(bi);
