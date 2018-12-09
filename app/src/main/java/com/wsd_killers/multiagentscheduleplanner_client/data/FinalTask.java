@@ -1,12 +1,14 @@
 package com.wsd_killers.multiagentscheduleplanner_client.data;
 
+import java.util.Date;
+
 public class FinalTask extends Task {
 
-    private String startTime;
-    private String endTime;
-    private String duration;
+    private Date startTime;
+    private Date endTime;
+    private Date duration;
 
-    public FinalTask(String name, TaskType type, int slotsQuantity, String startTime, String endTime, String duration) {
+    public FinalTask(String name, TaskType type, int slotsQuantity, Date startTime, Date endTime, Date duration) {
         this.name = name;
         this.type = type;
         this.slotsQuantity = slotsQuantity;
@@ -15,27 +17,31 @@ public class FinalTask extends Task {
         this.duration = duration;
     }
 
-    public String getStartTime() {
+    public FinalTask() {
+
+    }
+
+    public Date getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(String startTime) {
+    public void setStartTime(Date startTime) {
         this.startTime = startTime;
     }
 
-    public String getEndTime() {
+    public Date getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(String endTime) {
+    public void setEndTime(Date endTime) {
         this.endTime = endTime;
     }
 
-    public String getDuration() {
+    public Date getDuration() {
         return duration;
     }
 
-    public void setDuration(String duration) {
+    public void setDuration(Date duration) {
         this.duration = duration;
     }
 }
