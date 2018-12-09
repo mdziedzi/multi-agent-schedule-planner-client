@@ -12,7 +12,6 @@ import com.wsd_killers.multiagentscheduleplanner_client.utils.SerializationUtils
 import java.util.ArrayList;
 
 import jade.core.Agent;
-import jade.core.behaviours.CyclicBehaviour;
 import jade.core.behaviours.OneShotBehaviour;
 import jade.lang.acl.ACLMessage;
 
@@ -29,19 +28,6 @@ public class ClientAgent extends Agent implements ClientAgentInterface {
         System.out.println("Agent: I'm alive!\n");
 
         registerO2AInterface(ClientAgentInterface.class, this);
-
-
-        addBehaviour(new CyclicBehaviour() {
-            @Override
-            public void action() {
-                System.out.println("Jestem androindowym agentem!");
-                try {
-                    Thread.sleep(3000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
 
         tasks = new ArrayList<>();
 

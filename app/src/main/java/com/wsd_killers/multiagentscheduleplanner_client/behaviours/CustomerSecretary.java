@@ -30,7 +30,7 @@ public class CustomerSecretary extends CommonTask {
     @Override
     public ACLMessage processMessage(ACLMessage msg) {
         if (msg != null) {
-            System.out.println("Message: " + msg.toString());
+            System.out.println("Message: " + msg.getConversationId());
             String conversationId = msg.getConversationId();
             switch (conversationId) {
                 case Constans.CustomerSecretaryMessages.RECEIVE_RESERVATION_RESPONSE:
@@ -53,22 +53,25 @@ public class CustomerSecretary extends CommonTask {
     }
 
     private ACLMessage onSendTaskData(ACLMessage msg) {
-        //todo: wyslij to do innego agenta itp.
-        //todo: jak dostac AID????
-        AID receiver = new AID();
+
         ACLMessage message = new ACLMessage();
 
-        message.addReceiver(receiver);
+        basicBehaviour.updateListOfServiceProviders();
+        for (AID receiver : basicBehaviour.getYellowPages()) {
+            System.out.println("onSendTaskData(): wysylam sendservicedata");
+            message.addReceiver(receiver);
+            message.setConversationId(Constans.ServiceProviderSecretaryMessages.SEND_SERVICE_DATA);
+            basicBehaviour.sendMessageToAgent(message);
+        }
 
-
-        return message;
+        return new ACLMessage();
     }
 
     private ACLMessage onReceiveServiceData(ACLMessage msg) {
         //todo: tutaj otrzymujemy informacje od agenta serwisu o jego godzinach otwarcia itp. itd.
         //todo: trzeba zaimportowac klase ServiceProviderData i odczytac ja z pola msg.getContent()
         ServiceProviderData serviceProviderData = ServiceProviderData.deserialize(msg.getContent());
-
+        System.out.println(serviceProviderData.toString());
 
         return new ACLMessage();
     }

@@ -31,7 +31,8 @@ public class CustomerScheduler extends CommonTask {
             switch (msg.getConversationId()) {
                 case Constans.CustomerSchedulerMessages.NOTIFY_CHANGES:
                 case Constans.CustomerSchedulerMessages.RECEIVE_RESERVATION_STATUS:
-                case Constans.CustomerSchedulerMessages.SEND_TASK:
+                case Constans.CustomerSchedulerMessages.RECIVE_TASK_DATA:
+                case Constans.CustomerSchedulerMessages.SEND_TASKS:
                     return true;
                 default:
                     return false;
@@ -43,7 +44,7 @@ public class CustomerScheduler extends CommonTask {
     @Override
     public ACLMessage processMessage(ACLMessage msg) {
         if (msg != null) {
-            System.out.println("Message: " + msg.toString());
+            System.out.println("Message: " + msg.getConversationId());
             String conversationId = msg.getConversationId();
             switch (conversationId) {
                 case Constans.CustomerSchedulerMessages.NOTIFY_CHANGES:
@@ -51,9 +52,9 @@ public class CustomerScheduler extends CommonTask {
                 case Constans.CustomerSchedulerMessages.RECEIVE_RESERVATION_STATUS:
                     break;
                 case Constans.CustomerSchedulerMessages.RECIVE_TASK_DATA:
+                    return onReceiveTaskData(msg); //todo: change
+                case Constans.CustomerSchedulerMessages.SEND_TASKS:
                     return onReceiveTaskData(msg);
-                case Constans.CustomerSchedulerMessages.SEND_TASK:
-                    break;
                 default:
                     return createNotUnderstoodMessage(msg);
             }

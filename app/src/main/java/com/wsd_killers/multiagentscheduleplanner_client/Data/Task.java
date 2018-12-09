@@ -1,6 +1,8 @@
 package com.wsd_killers.multiagentscheduleplanner_client.data;
 
-public abstract class Task {
+import java.io.Serializable;
+
+public abstract class Task implements Serializable {
 
     protected String name;
     protected TaskType type;

@@ -38,7 +38,7 @@ public class CustomerInterface extends CommonTask implements com.wsd_killers.mul
     public ACLMessage processMessage(ACLMessage msg) {
         //todo
         if (msg != null) {
-            System.out.println("Message: " + msg.toString());
+            System.out.println("Message: " + msg.getConversationId());
             String conversationId = msg.getConversationId();
             switch (conversationId) {
                 case Constans.CustomerInterfaceMessages.SEND_TASK_DATA:

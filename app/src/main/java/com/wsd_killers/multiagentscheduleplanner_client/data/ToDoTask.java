@@ -1,8 +1,10 @@
 package com.wsd_killers.multiagentscheduleplanner_client.data;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class ToDoTask extends com.wsd_killers.multiagentscheduleplanner_client.data.Task {
+public class ToDoTask extends com.wsd_killers.multiagentscheduleplanner_client.data.Task
+        implements Serializable {
 
     private Date timeIntervalBegin;
     private Date timeIntervalEnd;

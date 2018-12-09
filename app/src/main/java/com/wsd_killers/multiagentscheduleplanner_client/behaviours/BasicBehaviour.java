@@ -48,7 +48,7 @@ public class BasicBehaviour extends CyclicBehaviour {
                 return ct.processMessage(msg).getContent();
             }
         }
-        return new String();
+        return "";
     }
 
     public ACLMessage createNotUnderstoodMessage(ACLMessage message) {
@@ -58,7 +58,7 @@ public class BasicBehaviour extends CyclicBehaviour {
         return reply;
     }
 
-    private void updateListOfServiceProviders() {
+    public void updateListOfServiceProviders() {
         // Update the list of seller agents
         DFAgentDescription template = new DFAgentDescription();
         ServiceDescription sd = new ServiceDescription();

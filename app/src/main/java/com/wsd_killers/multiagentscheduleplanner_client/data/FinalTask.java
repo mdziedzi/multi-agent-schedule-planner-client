@@ -1,8 +1,9 @@
 package com.wsd_killers.multiagentscheduleplanner_client.data;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class FinalTask extends Task {
+public class FinalTask extends Task implements Serializable {
 
     private Date startTime;
     private Date endTime;
