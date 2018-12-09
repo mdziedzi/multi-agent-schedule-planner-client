@@ -1,7 +1,9 @@
 package com.wsd_killers.multiagentscheduleplanner_client.behaviours;
 
 import com.wsd_killers.multiagentscheduleplanner_client.Constans.Constans;
+import com.wsd_killers.multiagentscheduleplanner_client.data.messages.ServiceProviderData;
 
+import jade.core.AID;
 import jade.lang.acl.ACLMessage;
 
 
@@ -16,6 +18,7 @@ public class CustomerSecretary extends CommonTask {
                 case Constans.CustomerSecretaryMessages.SEND_RESERVATION_REQUEST:
                 case Constans.CustomerSecretaryMessages.SEND_RESERVATION_STATUS:
                 case Constans.CustomerSecretaryMessages.SEND_TASK_DATA:
+                case Constans.CustomerSecretaryMessages.RECEIVE_SERVICE_DATA:
                     return true;
                 default:
                     return false;
@@ -54,11 +57,10 @@ public class CustomerSecretary extends CommonTask {
         //todo: jak dostac AID????
         AID receiver = new AID();
         ACLMessage message = new ACLMessage();
-        
+
         message.addReceiver(receiver);
-        
-        
-        
+
+
         return message;
     }
 
@@ -66,6 +68,7 @@ public class CustomerSecretary extends CommonTask {
         //todo: tutaj otrzymujemy informacje od agenta serwisu o jego godzinach otwarcia itp. itd.
         //todo: trzeba zaimportowac klase ServiceProviderData i odczytac ja z pola msg.getContent()
         ServiceProviderData serviceProviderData = ServiceProviderData.deserialize(msg.getContent());
-        
+
         return new ACLMessage();
     }
+}

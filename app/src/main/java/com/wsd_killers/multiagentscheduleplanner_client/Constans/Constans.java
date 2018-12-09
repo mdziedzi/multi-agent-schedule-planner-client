@@ -33,6 +33,7 @@ public class Constans {
         public static final String SEND_RESERVATION_REQUEST = "send_reservation_request";
         public static final String RECEIVE_RESERVATION_RESPONSE = "receive_reservation_response";
         public static final String SEND_RESERVATION_STATUS = "send_reservation_status";
+        public static final String RECEIVE_SERVICE_DATA = "receive_service_data";
     }
 
     public static class CustomerSchedulerMessages {
