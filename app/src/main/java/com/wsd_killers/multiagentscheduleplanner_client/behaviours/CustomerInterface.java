@@ -4,6 +4,7 @@ import com.wsd_killers.multiagentscheduleplanner_client.Constans.Constans;
 import com.wsd_killers.multiagentscheduleplanner_client.Exceptions.BadFormatException;
 import com.wsd_killers.multiagentscheduleplanner_client.Exceptions.TimeIntegrityException;
 import com.wsd_killers.multiagentscheduleplanner_client.data.ToDoTask;
+import com.wsd_killers.multiagentscheduleplanner_client.utils.SerializationUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -18,41 +19,7 @@ import static android.text.TextUtils.isEmpty;
 
 public class CustomerInterface extends CommonTask implements com.wsd_killers.multiagentscheduleplanner_client.Interfaces.CustomerInterfaceInterface {
 
-    //    private String name;
-//    private String startTime;
-//    private String endTime;
-//    private String duration;
     private ArrayList<ToDoTask> toDoTasks;
-
-//    public void setCustomerData(com.wsd_killers.multiagentscheduleplanner_client.data.FinalTask data) throws negativeValueException {
-//        if (data.getName() != null && name != data.getName()) {
-//            name = data.getName();
-//        }
-//        if (data.getStartTime() != null && startTime != data.getStartTime()) {
-//            startTime = data.getStartTime();
-//        }
-//        if (data.getEndTime() != null && endTime != data.getEndTime()) {
-//            endTime = data.getEndTime();
-//        }
-//        if (data.getDuration() != null && endTime != data.getDuration()) {
-//            duration = data.getDuration();
-//        }
-//        if (data.getName() != null && !Objects.equals(name, data.getName())) {
-//            name = data.getName();
-//        }
-//        if (data.getDuration() != null && !Objects.equals(duration, data.getDuration())) {
-//            duration = data.getDuration();
-//        }
-//        if (data.getStartTime() != null && !Objects.equals(startTime, data.getStartTime())) {
-//            startTime = data.getStartTime();
-//        }
-//        if (data.getEndTime() != null && !Objects.equals(startTime, data.getEndTime())) {
-//            endTime = data.getEndTime();
-//        }
-//
-//
-//    }
-
 
     @Override
     public boolean isMessageRelevant(ACLMessage msg) {
@@ -68,16 +35,14 @@ public class CustomerInterface extends CommonTask implements com.wsd_killers.mul
     }
 
     @Override
-    public ACLMessage ProcessMessage(ACLMessage msg) {
+    public ACLMessage processMessage(ACLMessage msg) {
         //todo
         if (msg != null) {
             System.out.println("Message: " + msg.toString());
             String conversationId = msg.getConversationId();
             switch (conversationId) {
-                case Constans.ServiceProviderInterfaceMessages.VERIFY_RESERVATION:
-                    break;
-                case Constans.ServiceProviderInterfaceMessages.SEND_SERVICE_DATA:
-                    break;
+                case Constans.CustomerInterfaceMessages.SEND_TASK_DATA:
+                    return onCustomerDataReceived(msg);
                 default:
                     return createNotUnderstoodMessage(msg);
             }
@@ -85,11 +50,15 @@ public class CustomerInterface extends CommonTask implements com.wsd_killers.mul
         return new ACLMessage();
     }
 
-    public void setClientData(ArrayList<ToDoTask> toDoTasks) {
-        collectDataFromCustomer(toDoTasks);
+    private ACLMessage onCustomerDataReceived(ACLMessage msg) {
+        collectDataFromCustomer((ArrayList<ToDoTask>) SerializationUtils.deserializeFromString(msg.getContent()));
+        ACLMessage internalMsg = new ACLMessage();
+        internalMsg.setConversationId(Constans.CustomerSchedulerMessages.SEND_TASKS);
+        internalMsg.setContent(SerializationUtils.serializeToString(toDoTasks));
+        sendMessageToOtherTask(internalMsg);
+        return new ACLMessage();
     }
 
-    // CollectDataFromCustomer
     private void collectDataFromCustomer(ArrayList<ToDoTask> toDoTasks) {
         try {
             for (ToDoTask t : toDoTasks) {

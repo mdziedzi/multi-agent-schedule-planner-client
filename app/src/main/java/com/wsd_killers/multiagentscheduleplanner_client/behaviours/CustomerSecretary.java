@@ -25,7 +25,7 @@ public class CustomerSecretary extends CommonTask {
     }
 
     @Override
-    public ACLMessage ProcessMessage(ACLMessage msg) {
+    public ACLMessage processMessage(ACLMessage msg) {
         if (msg != null) {
             System.out.println("Message: " + msg.toString());
             String conversationId = msg.getConversationId();

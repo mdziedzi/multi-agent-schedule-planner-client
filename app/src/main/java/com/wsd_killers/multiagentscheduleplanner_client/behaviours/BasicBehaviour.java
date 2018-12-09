@@ -21,7 +21,7 @@ public class BasicBehaviour extends CyclicBehaviour {
             for (CommonTask sp : TasksList) {
                 if (sp.isMessageRelevant(msg)) {
                     isSPFound = true;
-                    myAgent.send(sp.ProcessMessage(msg));
+                    myAgent.send(sp.processMessage(msg));
                 }
             }
             if (!isSPFound) {
@@ -33,7 +33,7 @@ public class BasicBehaviour extends CyclicBehaviour {
     public boolean sendMessageToTask(ACLMessage msg) {
         for (CommonTask ct : TasksList) {
             if (ct.isMessageRelevant(msg)) {
-                ct.ProcessMessage(msg);
+                ct.processMessage(msg);
                 return true;
             }
         }
