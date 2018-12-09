@@ -14,6 +14,10 @@ import java.util.ArrayList;
 import jade.core.Agent;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.core.behaviours.OneShotBehaviour;
+import jade.domain.DFService;
+import jade.domain.FIPAAgentManagement.DFAgentDescription;
+import jade.domain.FIPAAgentManagement.ServiceDescription;
+import jade.domain.FIPAException;
 import jade.lang.acl.ACLMessage;
 
 public class ClientAgent extends Agent implements ClientAgentInterface {
@@ -30,6 +34,18 @@ public class ClientAgent extends Agent implements ClientAgentInterface {
 
         registerO2AInterface(ClientAgentInterface.class, this);
 
+        DFAgentDescription dfd = new DFAgentDescription();
+        dfd.setName(getAID());
+        ServiceDescription sd = new ServiceDescription();
+        sd.setType("client");
+        sd.setName("client-default-name");
+        dfd.addServices(sd);
+        try {
+            DFService.register(this, dfd);
+        } catch (FIPAException fe) {
+            fe.printStackTrace();
+        }
+
         addBehaviour(new CyclicBehaviour() {
             @Override
             public void action() {
@@ -41,7 +57,6 @@ public class ClientAgent extends Agent implements ClientAgentInterface {
                 }
             }
         });
-
 
         tasks = new ArrayList<>();
 
