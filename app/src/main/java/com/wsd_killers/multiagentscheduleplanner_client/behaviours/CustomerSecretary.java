@@ -39,11 +39,16 @@ public class CustomerSecretary extends CommonTask {
                 case Constans.CustomerSecretaryMessages.SEND_RESERVATION_STATUS:
                     break;
                 case Constans.CustomerSecretaryMessages.SEND_TASK_DATA:
-                    break;
+                    return onSendTaskData(msg);
                 default:
                     return createNotUnderstoodMessage(msg);
             }
         }
+        return new ACLMessage();
+    }
+
+    private ACLMessage onSendTaskData(ACLMessage msg) {
+        //todo wyslij to do innego agenta itp.
         return new ACLMessage();
     }
 

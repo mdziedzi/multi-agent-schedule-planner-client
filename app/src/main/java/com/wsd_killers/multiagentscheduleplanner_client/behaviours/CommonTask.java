@@ -10,7 +10,7 @@ public abstract class CommonTask {
         basicBehaviour = bb;
     }
 
-    public boolean sendMessageToOtherTask(ACLMessage msg) {
+    public String sendMessageToOtherTask(ACLMessage msg) {
         return basicBehaviour.sendMessageToTask(msg);
     }
 
