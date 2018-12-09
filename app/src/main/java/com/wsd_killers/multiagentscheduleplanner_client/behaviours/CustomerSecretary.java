@@ -69,6 +69,7 @@ public class CustomerSecretary extends CommonTask {
         //todo: trzeba zaimportowac klase ServiceProviderData i odczytac ja z pola msg.getContent()
         ServiceProviderData serviceProviderData = ServiceProviderData.deserialize(msg.getContent());
 
+
         return new ACLMessage();
     }
 }

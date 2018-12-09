@@ -1,8 +1,14 @@
 package com.wsd_killers.multiagentscheduleplanner_client.behaviours;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
+import jade.core.AID;
 import jade.core.behaviours.CyclicBehaviour;
+import jade.domain.DFService;
+import jade.domain.FIPAAgentManagement.DFAgentDescription;
+import jade.domain.FIPAAgentManagement.ServiceDescription;
+import jade.domain.FIPAException;
 import jade.lang.acl.ACLMessage;
 
 public class BasicBehaviour extends CyclicBehaviour {
@@ -12,6 +18,8 @@ public class BasicBehaviour extends CyclicBehaviour {
     public BasicBehaviour(ArrayList<CommonTask> tasks) {
         TasksList = new ArrayList<>(tasks);
     }
+
+    private ArrayList<AID> yellowPages = new ArrayList<>();
 
     @Override
     public void action() {
@@ -49,4 +57,27 @@ public class BasicBehaviour extends CyclicBehaviour {
         reply.setContent("Not understood message");
         return reply;
     }
+
+    private void updateListOfServiceProviders() {
+        // Update the list of seller agents
+        DFAgentDescription template = new DFAgentDescription();
+        ServiceDescription sd = new ServiceDescription();
+        sd.setType("service-provider");
+        template.addServices(sd);
+        try {
+            DFAgentDescription[] result = DFService.search(myAgent, template);
+            AID[] sellerAgents = new AID[result.length];
+            for (int i = 0; i < result.length; ++i) {
+                sellerAgents[i] = result[i].getName();
+            }
+            yellowPages = new ArrayList<>(Arrays.asList(sellerAgents));
+        } catch (FIPAException fe) {
+            fe.printStackTrace();
+        }
+    }
+
+    public ArrayList<AID> getYellowPages() {
+        return yellowPages;
+    }
+
 }
